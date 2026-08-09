@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎉 Party Invite | With Google Drive</title>
+    <title>🎉 Party Invite | Password: 2458</title>
     <style>
         * {
             margin: 0;
@@ -149,7 +149,7 @@
 <!-- Admin Login & Edit Panel -->
 <div class="admin-login" id="adminLoginBox">
     <h2 style="text-align:center;margin-bottom:1rem;">Admin Login</h2>
-    <input type="password" id="adminPass" placeholder="Password: 1234">
+    <input type="password" id="adminPass" placeholder="Enter Password: 2458">
     <button class="btn" onclick="adminLogin()">Login</button>
 </div>
 
@@ -191,7 +191,6 @@ window.onload = function() {
         document.getElementById('text-date').innerHTML = saved.dateText;
         document.getElementById('text-location').innerHTML = saved.locText;
         document.getElementById('text-extras').innerHTML = saved.extraText;
-        // Load saved Google Drive link
         if(saved.driveLink) {
             document.getElementById('driveLink').href = saved.driveLink;
             document.getElementById('driveSection').style.display = "block";
@@ -206,7 +205,8 @@ function toggleAdminLogin() {
     document.getElementById('adminLoginBox').classList.toggle('active');
 }
 function adminLogin() {
-    if(document.getElementById('adminPass').value === "1234") {
+    // ✅ PASSWORD = 2458
+    if(document.getElementById('adminPass').value === "2458") {
         document.getElementById('adminLoginBox').classList.remove('active');
         document.getElementById('adminPanelBox').classList.add('active');
         document.getElementById('edit-title').value = document.getElementById('main-title').innerText;
@@ -231,14 +231,12 @@ function saveEdits(e) {
     const partyDate = document.getElementById('edit-partydate').value;
     const driveLink = document.getElementById('edit-drivelink').value.trim();
 
-    // Update page
     document.getElementById('main-title').innerText = title;
     document.getElementById('main-tagline').innerHTML = tagline;
     document.getElementById('text-date').innerHTML = dateText;
     document.getElementById('text-location').innerHTML = locText;
     document.getElementById('text-extras').innerHTML = extraText;
     
-    // Update Google Drive link
     if(driveLink) {
         document.getElementById('driveLink').href = driveLink;
         document.getElementById('driveSection').style.display = "block";
@@ -246,7 +244,6 @@ function saveEdits(e) {
         document.getElementById('driveSection').style.display = "none";
     }
 
-    // Save to local storage
     const content = {title, tagline, dateText, locText, extraText, partyDate, driveLink};
     localStorage.setItem('partyContent', JSON.stringify(content));
 
